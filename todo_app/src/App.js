@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "@mui/material";
 import "./App.css";
 
 function App() {
@@ -22,9 +23,10 @@ function App() {
           value={input}
           onChange={(event) => setInput(event.target.value)}
         />
-        <button type="submit" onClick={addTodo}>
+        <Button type="submit" onClick={addTodo} color="primary">
           Add Todo
-        </button>
+        </Button>
+        {/* <button type="submit" onClick={addTodo}>Add Todo</button> */}
       </form>
 
       <ul>
