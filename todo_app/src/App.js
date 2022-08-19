@@ -21,12 +21,9 @@ function App() {
       <form>
         <input
           value={input}
-          onChange={(event) => setInput(event.target.value)}
-        />
-        <Button type="submit" onClick={addTodo} color="primary">
-          Add Todo
-        </Button>
-        {/* <button type="submit" onClick={addTodo}>Add Todo</button> */}
+          onChange={(event) => setInput(event.target.value)} />
+        <button type="submit" onClick={addTodo}>Add todo</button>
+        {/* <Button>Add toto</Button> */}
       </form>
 
       <ul>
