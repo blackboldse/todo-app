@@ -25,7 +25,6 @@ function App() {
         <button type="submit" onClick={addTodo}>Add todo</button>
         {/* <Button>Add toto</Button> */}
       </form>
-
       <ul>
         {todos.map((todo) => (
           <li>{todo}</li>
