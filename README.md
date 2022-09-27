@@ -2,18 +2,19 @@
 
 ## Requirements
 
-- Firebase
 - React
-- TODOLIST app
+- Firebase
 - Database
 - Hosted online
+- TODOLIST app
 
 ### Notes
 
-Prerequisites 2 fundamentals of React:
-
-- STATE: `useState()`, `event.preventDefault()`
-- PROPS:
+- REACT Hooks: `useState()`, `useEffect()`, `event.preventDefault()`
+- DATABASE: Firebase, Real-time database
+- FULL CRUD Funtionality: `create`, `update`, `read`, and `delete`
+- HOSTED ONLINE: Firebase
+- UI: Material-UI
 
 ### Run dynamic JavsScript with JSX
 

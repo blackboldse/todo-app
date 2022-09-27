@@ -1,34 +1,38 @@
+import { Button, FormControl, InputLabel, Input } from "@material-ui/core";
 import React, { useState } from "react";
-import { Button } from "@material-ui/core";
-import './App.css';
-
+import "./App.css";
+import Todo from "./Components/Todo";
 
 export default function App() {
-  const [todos, setTodo] = useState(["Learning ReactJS"]);
+  const [todos, setTodo] = useState([]);
   const [input, setInput] = useState("");
 
-  const handleAddTodo = (event) => {
-    event.preventDefault();
+  const AddTodo = (e) => {
+    e.preventDefault();
     setTodo([...todos, input]);
     setInput("");
   };
+
   return (
     <div className="App">
-      <h2>Create a TODO app with Firebase 🔥</h2>
-      <h3 className="subtitle">Add todo get started Today</h3>
-      <form action="">
-        <input value={input} onChange={(e) => setInput(e.target.value)} />
-        {/* <button onClick={handleAddTodo}>Add todo</button> */}
+      <h2>React TODO list app with Firebase 🔥</h2>
+      <h3 className="Subtitle">Add todo get started Today</h3>
+      <FormControl className="FormControl">
+        <InputLabel className="txt-italic">Add todo</InputLabel>
+        <Input value={input} onChange={(e) => setInput(e.target.value)} />
         <Button
-          type='submit'
-          variant='contained'
-          color='primary'
-          onClick={handleAddTodo}>Add todo</Button>
-      </form>
-
+          disabled={!input}
+          type="submit"
+          onClick={AddTodo}
+          variant="contained"
+          color="secondary"
+        >
+          New Todo
+        </Button>
+      </FormControl>
       <ul>
         {todos.map((todo) => (
-          <li>{todo}</li>
+          <Todo text={todo} />
         ))}
       </ul>
     </div>
