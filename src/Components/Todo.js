@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function Todo(props) {
   return (
-    <div><li>{props.text}</li></div>
-  )
+    <div>
+      <li>{props.text}</li>
+    </div>
+  );
 }
 
-export default Todo
+export default Todo;
