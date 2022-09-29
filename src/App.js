@@ -1,5 +1,5 @@
 import { Button, FormControl, Input, InputLabel } from "@mui/material";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, doc, onSnapshot, setDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import TodoList from "./Components/TodoList";
@@ -11,12 +11,17 @@ export default function App() {
 
   useEffect(() => {
     onSnapshot(collection(db, "todos"), (snapshot) => {
-      setTodos(snapshot.docs.map((doc) => doc.data().todos));
+      setTodos(snapshot.docs.map((doc) => doc.data().todo));
     });
   }, []);
 
-  const AddTodo = (e) => {
+  const AddTodo = async (e) => {
     e.preventDefault();
+    // Add a new document with a generated id
+    const todosRef = collection(db, "todos");
+    await setDoc(doc(todosRef), {
+      todo: input,
+    });
     setTodos([...todos, input]);
     setInput("");
   };
@@ -47,7 +52,7 @@ export default function App() {
       </form>
       <ul>
         {todos.map((todo) => (
-          <TodoList text={todo} />
+          <TodoList text={todo} key={todo.toString()} />
         ))}
       </ul>
     </div>
