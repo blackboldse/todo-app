@@ -1,5 +1,7 @@
 # Create a TODO list app with React + Firebase
 
+My site is to be deployed hosting at: https://todo-app-cp-53452.web.app
+
 ## Requirements
 
 - React

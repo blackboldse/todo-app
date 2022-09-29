@@ -7,6 +7,15 @@ temp/
 react-redux-*/
 .vscode/
 
+# Firebase Hosting
+.firebaserc
+.firebase
+firebase.json
+firebase-debug.log
+
+# Build generated
+build/
+
 .cache/
 .yarn/cache/
 website/.yarn/
