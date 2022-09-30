@@ -21,6 +21,7 @@ export default function App() {
     const todosRef = collection(db, "todos");
     await setDoc(doc(todosRef), {
       todo: input,
+      // Timestamp:
     });
     setTodos([...todos, input]);
     setInput("");
@@ -28,12 +29,13 @@ export default function App() {
 
   return (
     <div className="App">
-      <h2>React TODO list app with Firebase 🔥</h2>
+      <h2 className="title">React TODO list app with Firebase 🔥</h2>
       <h3 className="Subtitle">Add todo get started Today</h3>
-      <form>
+      <form className="form-list">
         <FormControl className="FormControl">
           <InputLabel className="txt-italic">New todo</InputLabel>
           <Input
+            className="FormInput"
             value={input}
             onChange={(e) => {
               setInput(e.target.value);

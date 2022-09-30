@@ -1,18 +1,42 @@
 .App {
+  position: relative;
+  box-sizing: border-box;
+
+  max-width: 480px;
+  width: 100%;
   height: auto;
+  padding: 1rem;
   margin: 0 auto;
   text-align: center;
+
+  background: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.title {
+  color: #ff5555;
+  margin: 0;
+  padding-top: 2rem;
+}
+.Subtitle {
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: normal;
+}
+.form-list {
+  padding: 0 1.5rem 2rem;
 }
 .FormControl {
+  width: 100%;
   flex-direction: row !important;
+  justify-content: space-between;
 }
 
 .txt-italic {
   font-style: italic !important;
 }
-
-.Subtitle {
-  font-style: italic;
-  font-size: 1rem;
-  font-weight: normal;
+.FormInput {
+  position: relative;
+  flex: 1;
+  padding: 0;
 }
