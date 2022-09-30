@@ -1,4 +1,7 @@
 span {
-  font-weight: bolder !important;
   color: #49454e;
+}
+
+.todo-list__item {
+  padding: 0px 16px !important;
 }

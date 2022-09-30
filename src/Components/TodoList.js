@@ -13,7 +13,7 @@ function TodoList(props) {
   return (
     <div>
       <List className="todo-list">
-        <ListItem>
+        <ListItem className="todo-list__item">
           <FormControlLabel control={<Checkbox />} label={""} />
           <ListItemText primary={props.text} />
         </ListItem>
