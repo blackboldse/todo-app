@@ -1,4 +1,10 @@
-import { List, ListItem, ListItemText } from "@mui/material";
+import {
+  Checkbox,
+  FormControlLabel,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
 import React from "react";
 import "./TodoList.css";
 
@@ -8,7 +14,8 @@ function TodoList(props) {
     <div>
       <List className="todo-list">
         <ListItem>
-          <ListItemText primary={props.text} secondary="Dummy Important ⏰" />
+          <FormControlLabel control={<Checkbox />} label={""} />
+          <ListItemText primary={props.text} />
         </ListItem>
       </List>
     </div>

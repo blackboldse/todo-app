@@ -30,10 +30,11 @@ export default function App() {
   return (
     <div className="App">
       <h2 className="title">React TODO list app with Firebase 🔥</h2>
-      <h3 className="Subtitle">Add todo get started Today</h3>
-      <form className="form-list">
+      <form className="formList">
         <FormControl className="FormControl">
-          <InputLabel className="txt-italic">New todo</InputLabel>
+          <InputLabel className="txt-italic">
+            ✍️ Add todo get started Today
+          </InputLabel>
           <Input
             className="FormInput"
             value={input}
@@ -52,7 +53,7 @@ export default function App() {
           </Button>
         </FormControl>
       </form>
-      <ul>
+      <ul className="todo-list">
         {todos.map((todo) => (
           <TodoList text={todo} key={todo.toString()} />
         ))}
