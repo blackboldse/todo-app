@@ -2,6 +2,12 @@ span {
   color: #49454e;
 }
 
-.todo-list__item {
+.list__item {
   padding: 0px 16px !important;
+  border-radius: 0.5em;
+  background: #f5e2e2;
+}
+
+Checkbox:checked ~ .list__task {
+  text-decoration: line-through;
 }
