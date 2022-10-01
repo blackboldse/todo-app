@@ -1,3 +1,4 @@
+import Header from "./Components/Header";
 import { Button, FormControl, Input, InputLabel } from "@mui/material";
 import { collection, doc, onSnapshot, setDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
@@ -29,7 +30,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h2 className="title">React TODO list app with Firebase 🔥</h2>
+      <Header />
       <form className="formList">
         <FormControl className="FormControl">
           <InputLabel className="txt-italic">
