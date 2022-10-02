@@ -1,3 +1,4 @@
+# Dependencies
 node_modules
 dist
 lib
@@ -7,14 +8,10 @@ temp/
 react-redux-*/
 .vscode/
 
-# Firebase Hosting
-.firebaserc
-.firebase
-firebase.json
-firebase-debug.log
-
 # Build generated
 build/
+public/
+
 
 .cache/
 .yarn/cache/

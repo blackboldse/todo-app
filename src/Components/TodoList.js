@@ -1,6 +1,6 @@
 import { Checkbox, Input, List, ListItem, ListItemText } from "@mui/material";
 import React from "react";
-import "./TodoList.css";
+import "../css/TodoList.css";
 
 function TodoList(props) {
   const todos = props.todos;

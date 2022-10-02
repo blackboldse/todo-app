@@ -3,7 +3,14 @@ import db from "./firebase";
 import Header from "./Components/Header";
 import TodoList from "./Components/TodoList";
 import { Button, FormControl, Input, InputLabel } from "@mui/material";
-import { collection, doc, onSnapshot, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  onSnapshot,
+  serverTimestamp,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 import "./App.css";
 
 export default function App() {
@@ -22,7 +29,7 @@ export default function App() {
     const todosRef = collection(db, "todos");
     await setDoc(doc(todosRef), {
       todo: input,
-      // Timestamp:
+      timestamp: serverTimestamp(),
     });
     setTodos([...todos, input]);
     setInput("");
@@ -34,7 +41,7 @@ export default function App() {
       <form className="formList">
         <FormControl className="FormControl">
           <InputLabel className="txt-italic">
-            ✍️ Add todo get started Today
+            Add todo get started Today
           </InputLabel>
           <Input
             className="FormInput"
@@ -56,7 +63,7 @@ export default function App() {
       </form>
       <ul className="todo-list">
         {todos.map((todo) => (
-          <TodoList text={todo} key={todo.toString()} />
+          <TodoList text={todo} key={todo} />
         ))}
       </ul>
     </div>
