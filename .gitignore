@@ -11,6 +11,8 @@ react-redux-*/
 # Build generated
 build/
 public/
+.firebase
+.eslintcache
 
 
 .cache/
