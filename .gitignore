@@ -7,17 +7,29 @@ es
 temp/
 react-redux-*/
 .vscode/
-
-# Build generated
-build/
-public/
 .firebase
 .eslintcache
+.project
+.settings
+.classpath
+
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+
+# Gradle file
+build/
 
 
-.cache/
+### Node ###
+# Logs
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 .yarn/cache/
-website/.yarn/
+.cache/
 .yarnrc
 .yarn/*
 !.yarn/patches
@@ -25,6 +37,9 @@ website/.yarn/
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
+website/.yarn/
+
+# Output of 'npm pack'
 .pnp.*
 *.tgz
 
@@ -35,7 +50,17 @@ yalc.sig
 lib/core/metadata.js
 lib/core/MetadataBlog.js
 
+# Gatsby / Website
 website/translated_docs
 website/build/
 website/node_modules
 website/i18n/*
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
