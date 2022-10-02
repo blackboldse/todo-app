@@ -8,6 +8,7 @@ temp/
 react-redux-*/
 .vscode/
 .firebase
+.firebaserc
 .eslintcache
 .project
 .settings
