@@ -1,8 +1,8 @@
 # Create a TODO list app with React + Firebase
 
-My site is to be deployed hosting at: https://todo-app-cp-53452.web.app
+My app is to be deployed hosting at: https://todo-app-cp-53452.web.app
 
-## Requirements
+## Technologies
 
 - React
 - Firebase
@@ -17,6 +17,9 @@ My site is to be deployed hosting at: https://todo-app-cp-53452.web.app
 - FULL CRUD Funtionality: `create`, `update`, `read`, and `delete`
 - HOSTED ONLINE: Firebase
 - UI: Material-UI
+
+### Features
+
 
 ### Run dynamic JavsScript with JSX
 
