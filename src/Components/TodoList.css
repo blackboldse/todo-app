@@ -2,12 +2,11 @@ span {
   color: #49454e;
 }
 
-.list__item {
+.list__items {
   padding: 0px 16px !important;
   border-radius: 0.5em;
   background: #f5e2e2;
 }
-
-Checkbox:checked ~ .list__task {
-  text-decoration: line-through;
+.list-item:hover {
+  cursor: pointer;
 }

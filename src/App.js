@@ -1,10 +1,10 @@
+import React, { useEffect, useState } from "react";
+import db from "./firebase";
 import Header from "./Components/Header";
+import TodoList from "./Components/TodoList";
 import { Button, FormControl, Input, InputLabel } from "@mui/material";
 import { collection, doc, onSnapshot, setDoc } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
 import "./App.css";
-import TodoList from "./Components/TodoList";
-import db from "./firebase";
 
 export default function App() {
   const [todos, setTodos] = useState([]);

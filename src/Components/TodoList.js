@@ -13,10 +13,10 @@ function TodoList(props) {
 
   return (
     <div>
-      <List className="list">
-        <ListItem className="list__item">
-          <Checkbox onClick={handleStrikethrough} className="list__checkbox" />
-          <ListItemText className="list__task" primary={props.text} />
+      <List className="lists">
+        <ListItem className="list__items">
+          <Checkbox className="list__checkbox" />
+          <ListItemText onClick={handleStrikethrough} primary={props.text} />
         </ListItem>
       </List>
     </div>
