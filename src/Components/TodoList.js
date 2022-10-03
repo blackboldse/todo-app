@@ -1,4 +1,4 @@
-import { Checkbox, Input, List, ListItem, ListItemText } from "@mui/material";
+import { Checkbox, List, ListItem } from "@mui/material";
 import React from "react";
 import "../css/TodoList.css";
 
@@ -13,10 +13,13 @@ function TodoList(props) {
 
   return (
     <div>
-      <List className="lists">
-        <ListItem className="list__items">
-          <Checkbox className="list__checkbox" />
-          <ListItemText onClick={handleStrikethrough} primary={props.text} />
+      <List className="todo-lists">
+        <ListItem className="todo-item">
+          <Checkbox
+            className="todo-item-checkbox"
+            onClick={handleStrikethrough}
+          />
+          {props.text}
         </ListItem>
       </List>
     </div>

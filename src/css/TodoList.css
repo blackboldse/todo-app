@@ -2,11 +2,14 @@ span {
   color: #49454e;
 }
 
-.list__items {
-  padding: 0px 16px !important;
+.todo-item {
+  padding: 8px 16px !important;
   border-radius: 0.5em;
-  background: #f5e2e2;
+  background: #f8f2f1;
 }
-.list-item:hover {
+.todo-item:hover {
   cursor: pointer;
+}
+.todo-lists:hover {
+  opacity: 0.8;
 }

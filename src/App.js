@@ -9,24 +9,27 @@ import {
   onSnapshot,
   serverTimestamp,
   setDoc,
-  updateDoc,
+  orderBy,
 } from "firebase/firestore";
 import "./App.css";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+  const todosRef = collection(db, "todos");
 
   useEffect(() => {
-    onSnapshot(collection(db, "todos"), (snapshot) => {
-      setTodos(snapshot.docs.map((doc) => doc.data().todo));
-    });
+    onSnapshot(
+      collection(db, "todos").orderBy("timestamp", "desc"),
+      (snapshot) => {
+        setTodos(snapshot.docs.map((doc) => doc.data().todo));
+      }
+    );
   }, []);
 
   const AddTodo = async (e) => {
     e.preventDefault();
     // Add a new document with a generated id
-    const todosRef = collection(db, "todos");
     await setDoc(doc(todosRef), {
       todo: input,
       timestamp: serverTimestamp(),
@@ -40,9 +43,7 @@ export default function App() {
       <Header />
       <form className="formList">
         <FormControl className="FormControl">
-          <InputLabel className="txt-italic">
-            Add todo get started Today
-          </InputLabel>
+          <InputLabel className="italic">Add todo get started Today</InputLabel>
           <Input
             className="FormInput"
             value={input}
