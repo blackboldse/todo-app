@@ -10,21 +10,26 @@ import {
   serverTimestamp,
   setDoc,
   orderBy,
+  query,
 } from "firebase/firestore";
 import "./App.css";
+import { TodayOutlined } from "@mui/icons-material";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+
   const todosRef = collection(db, "todos");
+  const q = query(todosRef, orderBy("timestamp", "desc"));
 
   useEffect(() => {
-    onSnapshot(
-      collection(db, "todos").orderBy("timestamp", "desc"),
-      (snapshot) => {
-        setTodos(snapshot.docs.map((doc) => doc.data().todo));
-      }
-    );
+    onSnapshot(q, (snapshot) => {
+      setTodos(
+        snapshot.docs.map((doc) =>
+          JSON.stringify({ id: doc.id, todo: doc.data().todo })
+        )
+      );
+    });
   }, []);
 
   const AddTodo = async (e) => {
@@ -64,7 +69,7 @@ export default function App() {
       </form>
       <ul className="todo-list">
         {todos.map((todo) => (
-          <TodoList text={todo} key={todo} />
+          <TodoList todo={todo} key={todo} />
         ))}
       </ul>
     </div>
