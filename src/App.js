@@ -23,9 +23,7 @@ export default function App() {
 
   useEffect(() => {
     onSnapshot(q, (snapshot) => {
-      setTodos(
-        snapshot.docs.map((doc) => ({ id: doc.id, todo: doc.data().todo }))
-      );
+      setTodos(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
     });
   }, []);
 
@@ -66,7 +64,7 @@ export default function App() {
       </form>
       <ul className="todo-list">
         {todos.map((todo) => (
-          <TodoList todo={todo.todo} key={todo.id} />
+          <TodoList key={todo.id} todo={todo.todo} />
         ))}
       </ul>
     </div>

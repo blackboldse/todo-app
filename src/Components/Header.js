@@ -4,7 +4,8 @@ import "../css/Header.css";
 export default function Header() {
   return (
     <div>
-      <h2 className="title">React TODO list app with Firebase</h2>
+      <h2 className="greeting">Good afternoon, BlackBold.</h2>
+      <h3 className="subtitle">What's your main focus today?</h3>
     </div>
   );
 }
