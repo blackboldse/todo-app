@@ -13,21 +13,18 @@ import {
   query,
 } from "firebase/firestore";
 import "./App.css";
-import { TodayOutlined } from "@mui/icons-material";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
 
   const todosRef = collection(db, "todos");
-  const q = query(todosRef, orderBy("timestamp", "desc"));
+  const q = query(todosRef, orderBy("timestamp"));
 
   useEffect(() => {
     onSnapshot(q, (snapshot) => {
       setTodos(
-        snapshot.docs.map((doc) =>
-          JSON.stringify({ id: doc.id, todo: doc.data().todo })
-        )
+        snapshot.docs.map((doc) => ({ id: doc.id, todo: doc.data().todo }))
       );
     });
   }, []);
@@ -47,10 +44,10 @@ export default function App() {
     <div className="App">
       <Header />
       <form className="formList">
-        <FormControl className="FormControl">
+        <FormControl className="formControl">
           <InputLabel className="italic">Add todo get started Today</InputLabel>
           <Input
-            className="FormInput"
+            className="formInput"
             value={input}
             onChange={(e) => {
               setInput(e.target.value);
@@ -69,7 +66,7 @@ export default function App() {
       </form>
       <ul className="todo-list">
         {todos.map((todo) => (
-          <TodoList todo={todo} key={todo} />
+          <TodoList todo={todo.todo} key={todo.id} />
         ))}
       </ul>
     </div>
