@@ -19,7 +19,7 @@ export default function App() {
   const [input, setInput] = useState("");
 
   const todosRef = collection(db, "todos");
-  const q = query(todosRef, orderBy("timestamp"));
+  const q = query(todosRef, orderBy("timestamp", "desc"));
 
   useEffect(() => {
     onSnapshot(q, (snapshot) => {
