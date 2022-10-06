@@ -8,7 +8,7 @@ function TodoList(props) {
       <List className="todo-lists">
         <ListItem className="todo-item">
           <Checkbox className="todo-item-checkbox" />
-          <ListItemText primary={props.todo} secondary="Agent IMportant ⏰" />
+          <ListItemText primary={props.todo} />
         </ListItem>
       </List>
     </div>

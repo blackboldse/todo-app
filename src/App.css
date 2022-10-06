@@ -32,9 +32,12 @@
   padding: 0;
 }
 
-.todo-list {
+.lists {
   margin: 0 !important;
   padding: 0 !important;
+}
+.lists ul {
+  padding: 0 0 8px !important;
 }
 
 /* RESET */

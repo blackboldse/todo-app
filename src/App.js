@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import db from "./firebase";
 import Header from "./Components/Header";
-import TodoList from "./Components/TodoList";
-import { Button, FormControl, Input, InputLabel } from "@mui/material";
+// import TodoList from "./Components/TodoList";
+import {
+  Button,
+  FormControl,
+  Input,
+  InputLabel,
+  ListItem,
+} from "@mui/material";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 import {
   collection,
   doc,
@@ -12,6 +19,7 @@ import {
   orderBy,
   query,
 } from "firebase/firestore";
+
 import "./App.css";
 
 export default function App() {
@@ -23,7 +31,12 @@ export default function App() {
 
   useEffect(() => {
     onSnapshot(q, (snapshot) => {
-      setTodos(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      setTodos(
+        snapshot.docs.map((doc) => ({
+          uniqueId: doc.id,
+          todo: doc.data().todo,
+        }))
+      );
     });
   }, []);
 
@@ -52,19 +65,21 @@ export default function App() {
             }}
           />
           <Button
+            onClick={AddTodo}
             disabled={!input}
             type="submit"
-            onClick={AddTodo}
             variant="contained"
             color="primary"
+            size="small"
+            startIcon={<AddCircleIcon />}
           >
             New Todo
           </Button>
         </FormControl>
       </form>
-      <ul className="todo-list">
+      <ul className="lists">
         {todos.map((todo) => (
-          <TodoList key={todo.id} todo={todo.todo} />
+          <ListItem key={todo.id}>{todo.todo}</ListItem>
         ))}
       </ul>
     </div>
