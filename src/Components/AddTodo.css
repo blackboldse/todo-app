@@ -1,0 +1,25 @@
+.formList {
+  padding: 1.6em;
+}
+.formControl {
+  width: 100%;
+  flex-direction: row !important;
+  justify-content: space-between;
+}
+
+.italic {
+  font-style: italic !important;
+}
+.formInput {
+  position: relative;
+  flex: 1;
+  padding: 0;
+}
+
+.lists {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.lists ul {
+  padding: 0 0 8px !important;
+}

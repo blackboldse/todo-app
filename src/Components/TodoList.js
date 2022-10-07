@@ -1,18 +1,16 @@
-import { Checkbox, List, ListItem, ListItemText } from "@mui/material";
 import React from "react";
+import { Checkbox, List, ListItem, ListItemText } from "@mui/material";
 import "../css/TodoList.css";
 
-function TodoList(props) {
+export default function TodoList(props) {
   return (
     <div>
       <List className="todo-lists">
         <ListItem className="todo-item">
           <Checkbox className="todo-item-checkbox" />
-          <ListItemText primary={props.todo} />
+          <ListItemText primary={props.text} />
         </ListItem>
       </List>
     </div>
   );
 }
-
-export default TodoList;
