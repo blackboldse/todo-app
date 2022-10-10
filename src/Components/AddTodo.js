@@ -1,4 +1,11 @@
-import { FormControl, InputLabel, Input, Button } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  Input,
+  Button,
+  TextField,
+  OutlinedInput,
+} from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import db from "../firebase";
 import {
@@ -11,8 +18,8 @@ import {
   setDoc,
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import "./AddTodo.css";
 import TodoList from "./TodoList";
+import "./AddTodo.css";
 
 export default function AddTodo(props) {
   const [todos, setTodos] = useState([]);
@@ -46,8 +53,8 @@ export default function AddTodo(props) {
   return (
     <div>
       <form className="formList">
-        <FormControl className="formControl">
-          <InputLabel className="italic">Add todo get started Today</InputLabel>
+        <FormControl variant="outlined" className="formControl">
+          <InputLabel className="italic">Test</InputLabel>
           <Input
             className="formInput"
             value={input}
@@ -57,11 +64,10 @@ export default function AddTodo(props) {
           />
           <Button
             onClick={getTodo}
-            disabled={!input}
+            // disabled={!input}
             type="submit"
             variant="contained"
             color="primary"
-            size="small"
             startIcon={<AddCircleIcon />}
           >
             New Todo
@@ -69,7 +75,7 @@ export default function AddTodo(props) {
         </FormControl>
       </form>
       {todos.map((todo) => (
-        <TodoList key={todo.id} text={todo.todo} />
+        <TodoList todo={todo.todo} />
       ))}
     </div>
   );

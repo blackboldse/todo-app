@@ -1,5 +1,6 @@
 * {
   overflow-wrap: break-word;
+  overflow: auto;
 }
 
 body {
