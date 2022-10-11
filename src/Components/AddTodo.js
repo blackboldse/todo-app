@@ -1,11 +1,4 @@
-import {
-  FormControl,
-  InputLabel,
-  Input,
-  Button,
-  TextField,
-  OutlinedInput,
-} from "@mui/material";
+import { FormControl, InputLabel, Input, Button } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import db from "../firebase";
 import {
@@ -37,7 +30,7 @@ export default function AddTodo(props) {
         }))
       );
     });
-  }, []);
+  }, ["id", "todo"]);
 
   const getTodo = async (e) => {
     e.preventDefault();
@@ -75,7 +68,7 @@ export default function AddTodo(props) {
         </FormControl>
       </form>
       {todos.map((todo) => (
-        <TodoList todo={todo.todo} />
+        <TodoList key={todo.id} todo={todo.todo} />
       ))}
     </div>
   );
