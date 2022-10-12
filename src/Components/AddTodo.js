@@ -1,4 +1,10 @@
-import { FormControl, InputLabel, Input, Button } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  Input,
+  Button,
+  TextField,
+} from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import db from "../firebase";
 import {
@@ -14,9 +20,9 @@ import React, { useEffect, useState } from "react";
 import TodoList from "./TodoList";
 import "./AddTodo.css";
 
-export default function AddTodo(props) {
-  const [todos, setTodos] = useState([]);
+export default function AddTodo() {
   const [input, setInput] = useState("");
+  const [todos, setTodos] = useState([]);
 
   const todosRef = collection(db, "todos");
   const q = query(todosRef, orderBy("timestamp", "desc"));
@@ -30,7 +36,7 @@ export default function AddTodo(props) {
         }))
       );
     });
-  }, ["id", "todo"]);
+  }, []);
 
   const getTodo = async (e) => {
     e.preventDefault();
@@ -47,7 +53,6 @@ export default function AddTodo(props) {
     <div>
       <form className="formList">
         <FormControl variant="outlined" className="formControl">
-          <InputLabel className="italic">Test</InputLabel>
           <Input
             className="formInput"
             value={input}
@@ -57,11 +62,11 @@ export default function AddTodo(props) {
           />
           <Button
             onClick={getTodo}
-            // disabled={!input}
+            disabled={!input}
             type="submit"
             variant="contained"
             color="primary"
-            startIcon={<AddCircleIcon />}
+            // startIcon={<AddCircleIcon />}
           >
             New Todo
           </Button>
