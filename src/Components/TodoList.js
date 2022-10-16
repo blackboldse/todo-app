@@ -5,10 +5,10 @@ import "../css/TodoList.css";
 const TodoList = (props) => {
   return (
     <div>
-      <List className="list">
-        <ListItem className="list-todo">
-          <Checkbox />
-          <ListItemText primary={props.todo} />
+      <List className="todo-list">
+        <ListItem className="todo-list-item">
+          <Checkbox className="todo-list-item-check" />
+          <ListItemText primary={props.todo} className="todo-list-item-text" />
         </ListItem>
       </List>
     </div>
