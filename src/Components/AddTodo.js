@@ -1,11 +1,4 @@
-import {
-  FormControl,
-  InputLabel,
-  Input,
-  Button,
-  TextField,
-} from "@mui/material";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
+import { FormControl, Input, Button } from "@mui/material";
 import db from "../firebase";
 import {
   collection,
@@ -17,8 +10,8 @@ import {
   setDoc,
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import TodoList from "./TodoList";
 import "./AddTodo.css";
+import TodoList from "./TodoList";
 
 export default function AddTodo() {
   const [input, setInput] = useState("");
@@ -43,7 +36,6 @@ export default function AddTodo() {
     // Add a new docs with a generated id
     await setDoc(doc(todosRef), {
       todo: input,
-      status: "unchecked",
       timestamp: serverTimestamp(),
     });
     setTodos([...todos, input]);
@@ -73,7 +65,7 @@ export default function AddTodo() {
         </FormControl>
       </form>
       {todos.map((todo) => (
-        <TodoList key={todo.id} todo={todo.todo} />
+        <TodoList todo={todo.todo} />
       ))}
     </div>
   );

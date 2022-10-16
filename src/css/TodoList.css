@@ -1,0 +1,5 @@
+ul:hover {
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: rgba(192, 192, 192, 0.1);
+}
