@@ -68,7 +68,7 @@ export default function AddTodo() {
         </FormControl>
       </form>
       {todos.map((todo) => (
-        <TodoList todo={todo.todo} />
+        <TodoList key={todo.uid} todo={todo.todo} />
       ))}
     </div>
   );
