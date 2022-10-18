@@ -1,11 +1,21 @@
-.todo-list {
+.List {
+  position: relative;
   border-radius: 2em;
   cursor: pointer;
+  position: absolute;
 }
-.todo-list-item {
+.ListItem {
   padding: 0 1em !important;
 }
 
-.todo-list:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+.List:hover {
+  /* background-color: rgba(0, 0, 0, 0.1); */
+}
+
+.List .more {
+  position: static;
+}
+
+.more {
+  position: relative;
 }
