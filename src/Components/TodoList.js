@@ -7,7 +7,8 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
-import { MoreHoriz } from "@mui/icons-material";
+import { DeleteForever, DeleteOutline, MoreHoriz } from "@mui/icons-material";
+import EditIcon from "@mui/icons-material/Edit";
 import "../css/TodoList.css";
 import db from "../firebase";
 import { deleteDoc, doc } from "firebase/firestore";
@@ -22,9 +23,9 @@ export default function TodoList(props) {
     setAnchorEl(null);
   };
 
-  const handleDelete = async (id) => {
-    await deleteDoc(doc(db, "todos", id));
-  };
+  // const handleDelete = async (id) => {
+  //   await deleteDoc(doc(db, "todos", id));
+  // };
 
   return (
     <List className="List">
@@ -47,10 +48,12 @@ export default function TodoList(props) {
             "aria-labelledby": "basic-button",
           }}
         >
-          <MenuItem className="MenuItem" onClick={handleClose}>
+          <MenuItem className="MenuItem" onClick={handleClose} disableRipple>
+            <EditIcon sx={{ mr: 1, fontSize: 18 }} />
             Edit
           </MenuItem>
-          <MenuItem className="MenuItem" onClick={handleDelete}>
+          <MenuItem className="MenuItem" onClick={handleClose} disableRipple>
+            <DeleteForever sx={{ mr: 1, fontSize: 18 }} />
             Delete
           </MenuItem>
         </Menu>

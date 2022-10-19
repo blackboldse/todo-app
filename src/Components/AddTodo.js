@@ -10,6 +10,7 @@ import {
   setDoc,
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import AddIcon from "@mui/icons-material/Add";
 import "./AddTodo.css";
 import TodoList from "./TodoList";
 
@@ -67,12 +68,12 @@ export default function AddTodo() {
             variant="contained"
             color="primary"
           >
-            New Todo
+            <AddIcon />
           </Button>
         </FormControl>
       </form>
       {todos.map((todo) => (
-        <TodoList key={todo.id} todo={todo.todo} />
+        <TodoList todo={todo.todo} />
       ))}
     </div>
   );

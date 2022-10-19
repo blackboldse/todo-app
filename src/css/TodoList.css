@@ -19,3 +19,6 @@
 .more {
   position: relative;
 }
+.MenuItem {
+  font-size: .875rem !important;
+}
