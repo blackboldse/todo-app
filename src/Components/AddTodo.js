@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Input,
-  Button,
-  InputLabel,
-  capitalize,
-} from "@mui/material";
+import { FormControl, Input, Button, InputLabel } from "@mui/material";
 import db from "../firebase";
 import {
   collection,
@@ -18,8 +12,6 @@ import {
 import React, { useEffect, useState } from "react";
 import "./AddTodo.css";
 import TodoList from "./TodoList";
-// import { uid } from "uid";
-// import { onValue, ref, set } from "firebase/database";
 
 export default function AddTodo() {
   const [input, setInput] = useState("");
@@ -38,28 +30,6 @@ export default function AddTodo() {
       );
     });
   }, []);
-
-  // useEffect(() => {
-  //   onValue(ref(db), (snapshot) => {
-  //     const data = snapshot.val();
-  //     if (data !== null) {
-  //       Object.values(data).map((todo) => {
-  //         setTodos((oldArr) => [...oldArr, todo]);
-  //       });
-  //     }
-  //   });
-  // }, []);
-
-  // const getTodo = (e) => {
-  //   const uuid = uid();
-  //   e.preventDefault();
-  //   // Add a new docs with a generated id
-  //   set(ref(db, `/${uuid}`), {
-  //     input,
-  //     uuid,
-  //   });
-  //   setInput("");
-  // };
 
   const AddTodo = async (e) => {
     e.preventDefault();
@@ -96,14 +66,13 @@ export default function AddTodo() {
             type="submit"
             variant="contained"
             color="primary"
-            // startIcon={<AddCircleIcon />}
           >
             New Todo
           </Button>
         </FormControl>
       </form>
       {todos.map((todo) => (
-        <TodoList todo={todo.todo} />
+        <TodoList key={todo.id} todo={todo.todo} />
       ))}
     </div>
   );
