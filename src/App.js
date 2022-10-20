@@ -1,13 +1,12 @@
 import React from "react";
-import Header from "./Components/Header";
-import AddTodo from "./Components/AddTodo";
-import "./App.css";
+import TodoForm from "./components/TodoForm";
+import Header from "./components/Header";
 
 export default function App() {
   return (
-    <div className="App">
+    <div className="">
       <Header />
-      <AddTodo />
+      <TodoForm />
     </div>
   );
 }
