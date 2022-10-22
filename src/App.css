@@ -1,0 +1,12 @@
+.App {
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: inherit;
+  text-align: center;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+}

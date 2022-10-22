@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{12:function(e,n,t){},14:function(e,n,t){"use strict";t.r(n);var o=t(0),r=t.n(o),l=t(2),a=t.n(l);t(12);function c(){return r.a.createElement("h1",{className:"text-3xl font-bold underline"},"Hello world!")}a.a.createRoot(document.getElementById("root")).render(r.a.createElement(r.a.StrictMode,null,r.a.createElement(c,null)))},3:function(e,n,t){e.exports=t(14)}},[[3,2,1]]]);
+//# sourceMappingURL=main.ae2d17cf.chunk.js.map
