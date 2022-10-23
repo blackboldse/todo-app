@@ -1,44 +1,46 @@
 import React, { useState } from "react";
-import db from "../firebase";
 import {
-  addDoc,
-  collection,
-  doc,
-  serverTimestamp,
-  setDoc,
-} from "firebase/firestore";
+  CheckBox,
+  DeleteForeverRounded,
+  EditRounded,
+} from "@mui/icons-material";
 
-function Todo() {
-  const [input, setInput] = useState("");
-
-  const handleChange = (e) => setInput(e.target.value);
-  const handleSubmit = async (e) => {
+export default function Todo({
+  todo,
+  toggleComplete,
+  handleDelete,
+  handleEdit,
+}) {
+  const [newTask, setNewTask] = useState(todo.task);
+  const handleChange = (e) => {
     e.preventDefault();
-    if (input !== "") {
-      await setDoc(doc(collection(db, "todos")), {
-        input,
-        completed: false,
-        timestamp: serverTimestamp(),
-      });
-      setInput("");
+    if (todo.completed === true) {
+      setNewTask(todo.task);
+    } else {
+      todo.task === "";
+      setNewTask(e.target.value);
     }
   };
   return (
-    <div className="wrapper">
-      <div className="container">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="todo-input">Add a todo get started</label>
-          <input
-            id="todo-input"
-            type="text"
-            value={input}
-            onChange={handleChange}
-          />
-          <button type="submit">Add Todo</button>
-        </form>
+    <div className="todo">
+      <div>
+        <button className="btn-complete" onClick={() => toggleComplete(todo)}>
+          <CheckBox id="i" />
+        </button>
+        <button className="btn-edit" onClick={() => handleEdit(todo, newTask)}>
+          <EditRounded id="i" />
+        </button>
+        <button className="btn-delete" onClick={() => handleDelete(todo.id)}>
+          <DeleteForeverRounded id="i" />
+        </button>
       </div>
+      <input
+        type="text"
+        style={{ textDecoration: todo.completed && "line-through" }}
+        value={todo.task === "" ? newTask : todo.task}
+        className="todo-list"
+        onChange={handleChange}
+      />
     </div>
   );
 }
-
-export default Todo;
