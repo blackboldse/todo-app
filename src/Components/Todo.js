@@ -4,6 +4,7 @@ import {
   DeleteForeverRounded,
   EditRounded,
 } from "@mui/icons-material";
+import "./Todo.css";
 
 export default function Todo({
   todo,
@@ -11,36 +12,39 @@ export default function Todo({
   handleDelete,
   handleEdit,
 }) {
-  const [newTask, setNewTask] = useState(todo.task);
+  const [input, setInput] = useState(todo.task);
   const handleChange = (e) => {
     e.preventDefault();
     if (todo.completed === true) {
-      setNewTask(todo.task);
+      setInput(todo.task);
     } else {
-      todo.task === "";
-      setNewTask(e.target.value);
+      todo.task = "";
+      setInput(e.target.value);
     }
   };
   return (
     <div className="todo">
-      <div>
-        <button className="btn-complete" onClick={() => toggleComplete(todo)}>
-          <CheckBox id="i" />
-        </button>
-        <button className="btn-edit" onClick={() => handleEdit(todo, newTask)}>
-          <EditRounded id="i" />
-        </button>
-        <button className="btn-delete" onClick={() => handleDelete(todo.id)}>
-          <DeleteForeverRounded id="i" />
-        </button>
-      </div>
-      <input
-        type="text"
-        style={{ textDecoration: todo.completed && "line-through" }}
+      <input type="checkbox" />
+      <p>{todo.todo}</p>
+      {/* style={{ textDecoration: todo.completed && "line-through" }}
         value={todo.task === "" ? newTask : todo.task}
         className="todo-list"
-        onChange={handleChange}
+        onChange={handleChange} */}
+      {/* <CheckBox
+        className="btn btn-complete"
+        onClick={() => toggleComplete(todo)}
+        id="i"
+      /> */}
+      {/* <EditRounded
+        className="btn btn-edit"
+        onClick={() => handleEdit(todo, newTask)}
+        id="i"
       />
+      <DeleteForeverRounded
+        className="btn btn-delete"
+        onClick={() => handleDelete(todo.id)}
+        id="i"
+      /> */}
     </div>
   );
 }
