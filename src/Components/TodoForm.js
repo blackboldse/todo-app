@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import db from "../firebase";
 import { collection, doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { Button, FormControl, Input, InputLabel } from "@mui/material";
 
 function Todo() {
   const [input, setInput] = useState("");
@@ -18,18 +19,25 @@ function Todo() {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="container">
-        <label htmlFor="todo-input">Add a todo get started</label>
-        <input
-          id="todo-input"
-          type="text"
-          value={input}
-          onChange={handleChange}
-        />
-        <button type="submit">Add Todo</button>
-      </div>
-    </form>
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <FormControl margin="normal" sx={{ display: "flex" }}>
+          <InputLabel sx={{ fontStyle: "italic" }}>
+            Add a todo get started
+          </InputLabel>
+          <Input
+            id="todo-input"
+            name="todo-input"
+            type="text"
+            value={input}
+            onChange={handleChange}
+          />
+          <Button type="submit" variant="contained">
+            Add Todo
+          </Button>
+        </FormControl>
+      </form>
+    </div>
   );
 }
 
