@@ -1,0 +1,12 @@
+.greeting {
+  margin-bottom: 0.5em;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #49454e;
+}
+.greeting-main {
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+  font-style: italic;
+  font-weight: 300;
+}
