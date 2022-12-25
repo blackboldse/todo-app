@@ -3,9 +3,9 @@ import "./Header.css";
 
 export default function Header() {
   return (
-    <div>
-      <h2 className="greeting">Good afternoon, BlackBold.</h2>
-      <h3 className="greeting-main">What's your main focus for today?</h3>
+    <div className="header">
+      <h2 className="header__greeting">Good afternoon, BlackBold.</h2>
+      <h3 className="header__subGreeting">What's your main focus for today?</h3>
     </div>
   );
 }

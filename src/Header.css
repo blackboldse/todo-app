@@ -1,10 +1,13 @@
-.greeting {
+.header {
+  margin-bottom: 2em;
+}
+.header__greeting {
   margin-bottom: 0.5em;
   font-size: 1.8em;
   font-weight: 700;
   color: #49454e;
 }
-.greeting-main {
+.header__subGreeting {
   margin-bottom: 0.5em;
   font-size: 1.4em;
   font-style: italic;

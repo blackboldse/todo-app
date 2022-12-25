@@ -1,10 +1,22 @@
 .App {
   margin: 4em 3em;
   padding: 4em 3em;
+}
+.Container {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  width: 100%;
+  min-width: 100vh;
+
   font-size: 1rem;
   font-weight: normal;
   line-height: inherit;
   text-align: center;
+  /* border-radius: 2em; */
+
+  background: #f2f2f3;
 }
 
 body {
@@ -13,36 +25,33 @@ body {
   margin-right: auto;
 }
 
-.container {
-  width: 100%;
-}
-
 @media (min-width: 640px) {
-  .container {
+  .Container {
     max-width: 640px;
+    margin: 0 auto;
   }
 }
 
 @media (min-width: 768px) {
-  .container {
+  .Container {
     max-width: 768px;
   }
 }
 
 @media (min-width: 1024px) {
-  .container {
+  .Container {
     max-width: 1024px;
   }
 }
 
 @media (min-width: 1280px) {
-  .container {
+  .Container {
     max-width: 1280px;
   }
 }
 
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
+@media (min-width: 1376px) {
+  .Container {
+    max-width: 1400px;
   }
 }
