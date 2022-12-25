@@ -6,11 +6,10 @@ import {
   collection,
   serverTimestamp,
   onSnapshot,
-  doc,
   getDocs,
 } from "firebase/firestore";
 import db from "./firebase";
-import { Container } from "@mui/material";
+import { Container, Input } from "@mui/material";
 import Header from "./Header";
 import { async } from "@firebase/util";
 
@@ -19,18 +18,23 @@ export default function App() {
   const [input, setInput] = useState("");
   const todosRef = collection(db, "todos");
 
-  const handleAddTodo = async (e) => {
+  const createTodo = async (e) => {
     e.preventDefault();
-    // if (input !== "") {
-    //   await addDoc(todosRef, {
-    //     todo: input,
-    //     isCompleted: false,
-    //     timeStamp: serverTimestamp(),
-    //   });
-    //   setTodos([...todos, input]);
-    //   setInput("");
-    // }
+    if (input !== "") {
+      await addDoc(todosRef, {
+        todo: input,
+        isCompleted: false,
+        timeStamp: serverTimestamp(),
+      });
+    }
+    // setTodos([...todos, input]);
+    setInput("");
   };
+
+  const updateTodo = async () => {};
+
+  const handleChange = (e) => setInput(e.target.value);
+  const handleSubmit = (e) => e.preventDefault();
 
   useEffect(() => {
     // onSnapshot(todosRef, (snapshot) => {
@@ -47,21 +51,20 @@ export default function App() {
   }, []);
 
   return (
-    <Container>
+    <Container maxWidth="sm">
       <div className="App">
         <div className="Header">
           <Header />
         </div>
         <div className="FromTodo">
-          <form action="submit">
+          <form className="topInput" onSubmit={createTodo}>
             <input
+              className="todo-input todo-new"
+              placeholder="New todo"
               value={input}
               type="text"
-              onChange={(event) => setInput(event.target.value)}
+              onChange={handleChange}
             />
-            <button onClick={handleAddTodo} type="submit">
-              Add
-            </button>
           </form>
         </div>
         <ul>
