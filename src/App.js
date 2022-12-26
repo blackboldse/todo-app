@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Todo from "./Todo";
+import Todo from "./components/Todo";
+import Header from "./components/Header";
 import {
   addDoc,
   collection,
   serverTimestamp,
   onSnapshot,
   getDocs,
+  setDoc,
+  doc,
 } from "firebase/firestore";
 import db from "./firebase";
 import { Container } from "@mui/material";
-import Header from "./Header";
 import { async } from "@firebase/util";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
   const todosRef = collection(db, "todos");
+  // const todoRef = doc(db, "todos");
 
   const createTodo = async (e) => {
     e.preventDefault();
@@ -69,7 +72,7 @@ export default function App() {
         </div>
         <ul>
           {todos.map((todo) => (
-            <Todo text={todo.todo} id={todo.id} key={todo.id} />
+            <Todo todo={todo.todo} id={todo.id} key={todo.id} />
           ))}
         </ul>
       </div>

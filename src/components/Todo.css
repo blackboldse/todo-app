@@ -34,7 +34,7 @@
 }
 .icon-wrapper {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-content: center;
   padding: 5px;
@@ -44,11 +44,21 @@
 .more-toggle {
 }
 
-.btn-delete {
+.btn {
   border: none;
   outline: none;
   background: none;
   text-align: center;
 
   cursor: pointer;
+}
+.btn-delete:hover,
+.btn-edit:hover {
+  opacity: 0.8;
+}
+.btn-icon-edit:hover {
+  color: #007fff;
+}
+.btn-icon-delete:hover {
+  color: #ff5555;
 }
