@@ -9,7 +9,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 import db from "./firebase";
-import { Container, Input } from "@mui/material";
+import { Container } from "@mui/material";
 import Header from "./Header";
 import { async } from "@firebase/util";
 
@@ -37,10 +37,6 @@ export default function App() {
   const handleSubmit = (e) => e.preventDefault();
 
   useEffect(() => {
-    // onSnapshot(todosRef, (snapshot) => {
-    //   setTodos(snapshot.docs.map((doc) => doc.data().todo));
-    // });
-
     const getTodos = async () => {
       const data = await getDocs(todosRef);
       onSnapshot(todosRef, (snapshot) => {
@@ -48,6 +44,10 @@ export default function App() {
       });
     };
     getTodos();
+    // onSnapshot(todosRef, (snapshot) => {
+    //   setTodos(snapshot.docs.map((doc) => doc.data().todo));
+    // });
+    // setTodos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   }, []);
 
   return (
@@ -60,7 +60,7 @@ export default function App() {
           <form className="topInput" onSubmit={createTodo}>
             <input
               className="todo-input todo-new"
-              placeholder="New todo"
+              placeholder="Add a todo get for started"
               value={input}
               type="text"
               onChange={handleChange}
@@ -69,7 +69,7 @@ export default function App() {
         </div>
         <ul>
           {todos.map((todo) => (
-            <Todo text={todo.todo} key={todo.id} />
+            <Todo text={todo.todo} id={todo.id} key={todo.id} />
           ))}
         </ul>
       </div>

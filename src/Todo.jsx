@@ -1,9 +1,18 @@
 import React from "react";
 import "./Todo.css";
 import DeleteIcon from "@mui/icons-material/Delete";
-// import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { deleteDoc, doc, getFirestore } from "firebase/firestore";
 
 export default function Todo(props) {
+  const deleteTodo = async () => {
+    const db = getFirestore();
+    const todoDoc = doc(db, "todos", props.id);
+    if (props.id === undefined) {
+      return `Cannot reading undefined!`;
+    }
+    await deleteDoc(todoDoc);
+  };
+
   return (
     <li className="todo-item">
       <span className="todo-item-wrapper">
@@ -11,10 +20,10 @@ export default function Todo(props) {
           <input className="todo-item-checkbox" type="checkbox" />
         </label>
         <span className="todo-item-title">{props.text}</span>
-        <div className="more">
-          <div className="icon-wrapper more-toggle">
+        <div className="icon-wrapper more-toggle">
+          <button className="todo-item-delete btn-delete" onClick={deleteTodo}>
             <DeleteIcon color="action" />
-          </div>
+          </button>
         </div>
       </span>
     </li>

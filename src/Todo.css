@@ -43,3 +43,12 @@
 }
 .more-toggle {
 }
+
+.btn-delete {
+  border: none;
+  outline: none;
+  background: none;
+  text-align: center;
+
+  cursor: pointer;
+}
